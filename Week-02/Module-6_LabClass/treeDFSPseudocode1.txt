@@ -1,0 +1,37 @@
+//tree:
+void dfs(int node){//for binary tree
+    
+    /*
+    #incase of binary tree we have
+       1.left_child
+       2.right_child
+    #incase of normal tree:
+       multiple child/all child
+    */
+
+    cout<<node<<endl;
+
+    //base case
+    if node does not have any child:
+        return
+    //general case
+    dfs(node.left_child);
+    dfs(node.right_child);
+}
+--------------------------------
+void dfs(int node){ //for normal tree
+    /*
+    #incase of normal tree:
+       multiple child/all child
+    */
+    
+    cout<<node<<endl;
+
+    //base case
+    if node does not have any child:
+        return
+
+    //general case
+      for all child of node:
+          dfs(child)
+}
