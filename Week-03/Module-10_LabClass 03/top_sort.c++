@@ -1,5 +1,6 @@
 // Assumption: Graph is acyclic
 // Topologycal Sorting:
+// Topologycal graph must be DAG(Directed Acyclic Graph)
 #include <bits/stdc++.h>
 using namespace std;
 const int N = 2e5;
@@ -8,7 +9,7 @@ vector<int> adj_list[N];
 int visited[N];
 
 stack<int> node_stack;
-
+// DFS
 void dfs(int node)
 {
     visited[node] = 1;
@@ -55,7 +56,7 @@ input:
 1 2
 3 1
 4 5
-
+------
 output:
 4 5 3 1 2
 */
