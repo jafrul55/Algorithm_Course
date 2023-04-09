@@ -1,0 +1,80 @@
+// input -> a weighted graph and a source
+// ouput -> distance of all nodes from the source
+
+/*
+u -> v
+
+if d[u] + c(u, v) < d[v]:
+    d[v] = d[u] + c(u, v)
+
+*/
+
+
+// space complexity -> O(n)
+// time complexity -> O(n^2)
+------------------------------------------------
+#Definition: A graph in which the number of edges 
+is much less than the possible number of edges.
+-For number of node 10 if number of edge 10
+then we can say it as sparse graph
+-------------------------------------------------
+     Updated Graph:
+     now updated Time complexity = O(n^2) ======> O(E log V)
+        here E = Edge = m, V = Node = n;
+        Time complexity = O(m)
+
+////This Algorithm better work incase of sparse graph:
+
+- create a distance array "d"
+- initialize all values of "d" to infinity ->O(n)
+- d[src] = 0
+- create a visited array and mark all nodes as unvisited ->O(n)
+-take an empty reverse priority_queue "pq
+-pq.push({0,src})
+
+- while the priority_queue is not empty(): -> O(E)
+    => head_distance,head = pq.front()
+    -pq.pop() -> O(log E)
+    -if visited[head] = 1: ignore 
+    - visited[head] = 1
+    - for all adj_node of head:->O(E)
+        - if d[head] + c(head, adj_node) < d[adj_node]:
+            - d[adj_node] = d[head] + c(node, adj_node)  //relax it
+            - pq.push({d[adj_node],adj_node}) -> O(log E)
+
+- ouput array "d" 
+
+
+
+O(n) + O(E log E) + O(E log E)
+-> O(|E| log |E|)
+-> O(|E| log |V^2|)
+-> O(2|E| log |V|)
+-> O(|E| log |v|) [Incase of computer science log base will be = 2]
+
+
+-----------
+-> E =>V^2
+---------
+we know:
+log 5^3
+->3 log 5
+->|E| = this define modulas number of E
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+Time Complexity:
+O(n) + O(n^2) + O(E) =O(n^2)
+
+O(E) in case of warse case will be O(n)
